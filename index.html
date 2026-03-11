@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravity — One bias. One trade. 9:30 NY.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f4f2ee;
+    --cream: #ede9e1;
+    --gold: #c9a84c;
+    --gold-dim: #8a6f30;
+    --red: #c0392b;
+    --green: #2ecc71;
+    --mid: #3a3832;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+scroll-behavior: smooth;
+background: #0a0a0a !important;
+background-color: #0a0a0a !important;
+color: #f4f2ee !important;
+color-scheme: dark;
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+min-height: 100vh;
+display: grid;
+grid-template-rows: 1fr auto;
+padding: 80px 40px 60px;
+position: relative;
+overflow: hidden;
+}
+
+.hero::before {
+content: ‘G’;
+position: absolute;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(300px, 50vw, 700px);
+color: rgba(201, 168, 76, 0.04);
+right: -80px;
+top: 50%;
+transform: translateY(-50%);
+pointer-events: none;
+line-height: 1;
+user-select: none;
+}
+
+.nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: absolute;
+top: 0; left: 0; right: 0;
+padding: 28px 40px;
+}
+
+.logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 22px;
+letter-spacing: 0.15em;
+color: var(–gold);
+}
+
+.nav-tag {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–gold-dim);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+}
+
+.hero-content {
+display: flex;
+flex-direction: column;
+justify-content: center;
+max-width: 700px;
+padding-top: 80px;
+}
+
+.eyebrow {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–gold);
+letter-spacing: 0.2em;
+text-transform: uppercase;
+margin-bottom: 28px;
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.eyebrow::before {
+content: ‘’;
+display: block;
+width: 32px;
+height: 1px;
+background: var(–gold);
+}
+
+h1 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(72px, 12vw, 140px);
+line-height: 0.92;
+letter-spacing: 0.02em;
+margin-bottom: 36px;
+}
+
+h1 em {
+font-style: normal;
+color: var(–gold);
+}
+
+.hero-sub {
+font-size: 17px;
+line-height: 1.7;
+color: rgba(244, 242, 238, 0.65);
+max-width: 480px;
+margin-bottom: 52px;
+font-weight: 300;
+}
+
+.cta-group {
+display: flex;
+align-items: center;
+gap: 28px;
+flex-wrap: wrap;
+}
+
+.btn-primary {
+background: var(–gold);
+color: var(–black);
+font-family: ‘DM Mono’, monospace;
+font-size: 13px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 18px 40px;
+border: none;
+cursor: pointer;
+text-decoration: none;
+display: inline-block;
+transition: all 0.2s ease;
+font-weight: 500;
+}
+
+.btn-primary:hover {
+background: var(–white);
+transform: translateY(-2px);
+}
+
+.cta-note {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–gold-dim);
+letter-spacing: 0.08em;
+}
+
+/* STATS ROW */
+.stats {
+border-top: 1px solid rgba(201, 168, 76, 0.15);
+padding-top: 40px;
+display: flex;
+gap: 60px;
+flex-wrap: wrap;
+}
+
+.stat-item {}
+.stat-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 40px;
+color: var(–gold);
+line-height: 1;
+margin-bottom: 4px;
+}
+.stat-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+color: rgba(244,242,238,0.4);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+}
+
+/* STORY SECTION */
+.story {
+padding: 120px 40px;
+max-width: 800px;
+margin: 0 auto;
+}
+
+.section-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+color: var(–gold);
+letter-spacing: 0.2em;
+text-transform: uppercase;
+margin-bottom: 60px;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+
+.section-label::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: rgba(201, 168, 76, 0.2);
+max-width: 200px;
+}
+
+.story p {
+font-size: clamp(20px, 3vw, 28px);
+line-height: 1.65;
+color: rgba(244,242,238,0.8);
+margin-bottom: 32px;
+font-weight: 300;
+}
+
+.story p strong {
+color: var(–white);
+font-weight: 500;
+}
+
+.story p.accent {
+font-size: clamp(28px, 4vw, 42px);
+color: var(–white);
+font-weight: 300;
+line-height: 1.4;
+}
+
+/* HOW IT WORKS */
+.how {
+background: #0f0e0c;
+padding: 120px 40px;
+border-top: 1px solid rgba(201,168,76,0.1);
+border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.how-inner {
+max-width: 1000px;
+margin: 0 auto;
+}
+
+.how h2 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(52px, 8vw, 90px);
+line-height: 1;
+margin-bottom: 80px;
+}
+
+.steps {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 48px;
+}
+
+.step {
+border-top: 1px solid rgba(201,168,76,0.3);
+padding-top: 28px;
+}
+
+.step-num {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–gold);
+letter-spacing: 0.15em;
+margin-bottom: 20px;
+}
+
+.step h3 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 28px;
+color: var(–white);
+letter-spacing: 0.05em;
+margin-bottom: 12px;
+}
+
+.step p {
+font-size: 15px;
+color: rgba(244,242,238,0.5);
+line-height: 1.65;
+}
+
+/* BIAS EXAMPLE */
+.signal-example {
+padding: 120px 40px;
+max-width: 700px;
+margin: 0 auto;
+text-align: center;
+}
+
+.signal-card {
+background: #0f0e0c;
+border: 1px solid rgba(201,168,76,0.2);
+padding: 52px;
+margin: 52px 0;
+position: relative;
+}
+
+.signal-time {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–gold-dim);
+letter-spacing: 0.15em;
+margin-bottom: 20px;
+}
+
+.signal-text {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 52px;
+color: var(–green);
+letter-spacing: 0.05em;
+line-height: 1;
+margin-bottom: 16px;
+}
+
+.signal-text.bear { color: var(–red); }
+
+.signal-instrument {
+font-family: ‘DM Mono’, monospace;
+font-size: 13px;
+color: rgba(244,242,238,0.4);
+letter-spacing: 0.1em;
+}
+
+.signal-example > p {
+font-size: 16px;
+color: rgba(244,242,238,0.5);
+line-height: 1.7;
+}
+
+.signal-example h2 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(40px, 6vw, 68px);
+line-height: 1.05;
+margin-bottom: 16px;
+}
+
+/* PRICING */
+.pricing {
+background: #0f0e0c;
+padding: 120px 40px;
+border-top: 1px solid rgba(201,168,76,0.1);
+}
+
+.pricing-inner {
+max-width: 600px;
+margin: 0 auto;
+}
+
+.price-card {
+border: 1px solid rgba(201,168,76,0.3);
+padding: 60px;
+position: relative;
+}
+
+.price-card::after {
+content: ‘GRAVITY’;
+position: absolute;
+bottom: 20px;
+right: 24px;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 80px;
+color: rgba(201,168,76,0.04);
+line-height: 1;
+pointer-events: none;
+}
+
+.price-amount {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 100px;
+color: var(–gold);
+line-height: 1;
+margin-bottom: 4px;
+}
+
+.price-period {
+font-family: ‘DM Mono’, monospace;
+font-size: 12px;
+color: var(–gold-dim);
+letter-spacing: 0.1em;
+margin-bottom: 48px;
+}
+
+.price-features {
+list-style: none;
+margin-bottom: 52px;
+}
+
+.price-features li {
+font-size: 15px;
+color: rgba(244,242,238,0.65);
+padding: 14px 0;
+border-bottom: 1px solid rgba(255,255,255,0.05);
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.price-features li::before {
+content: ‘→’;
+color: var(–gold);
+font-family: ‘DM Mono’, monospace;
+font-size: 12px;
+flex-shrink: 0;
+}
+
+.price-note {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+color: rgba(244,242,238,0.25);
+letter-spacing: 0.1em;
+margin-top: 24px;
+line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+padding: 60px 40px;
+border-top: 1px solid rgba(201,168,76,0.1);
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 20px;
+}
+
+.footer-logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 18px;
+color: var(–gold);
+letter-spacing: 0.15em;
+}
+
+.footer-links {
+display: flex;
+gap: 32px;
+}
+
+.footer-links a {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+color: rgba(244,242,238,0.3);
+text-decoration: none;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(–gold); }
+
+.footer-disclaimer {
+width: 100%;
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+color: rgba(244,242,238,0.2);
+line-height: 1.7;
+letter-spacing: 0.05em;
+border-top: 1px solid rgba(255,255,255,0.04);
+padding-top: 32px;
+margin-top: 20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content > * {
+animation: fadeUp 0.8s ease both;
+}
+
+.hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+.hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+.hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+.hero-content > *:nth-child(5) { animation-delay: 0.7s; }
+
+/* MOBILE */
+@media (max-width: 600px) {
+.hero { padding: 80px 24px 48px; }
+.nav { padding: 24px; }
+.story { padding: 80px 24px; }
+.how { padding: 80px 24px; }
+.signal-example { padding: 80px 24px; }
+.signal-card { padding: 36px 28px; }
+.pricing { padding: 80px 24px; }
+.price-card { padding: 40px 28px; }
+footer { padding: 48px 24px; }
+.stats { gap: 36px; }
+.cta-group { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav class="nav">
+  <div class="logo">GRAVITY</div>
+  <div class="nav-tag">gravity.forex</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Daily bias · NQ &amp; EUR/USD</div>
+    <h1>ONE<br>SIGNAL.<br><em>DAILY.</em></h1>
+    <p class="hero-sub">
+      Every morning at 9:30 NY, you get a single directional bias for NQ futures and EUR/USD.
+      No noise. No guessing. Just gravity.
+    </p>
+    <div class="cta-group">
+      <a href="https://whop.com/gravity-signals" class="btn-primary">Join the channel</a>
+      <span class="cta-note">$39 / month · cancel anytime</span>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-num">9:30</div>
+      <div class="stat-label">NY Open · daily</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Instruments</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Bias per day</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1–2<span style="font-size:22px">m</span></div>
+      <div class="stat-label">Avg hold time</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="how">
+  <div class="how-inner">
+    <div class="section-label">How it works</div>
+    <h2>Dead simple.<br>By design.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>The indicator</h3>
+        <p>Gravity measures the pull of unmitigated institutional orders using a time-weighted formula. The longer an order sits unfilled, the stronger its pull on price.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>The bias</h3>
+        <p>Every morning before 9:30 NY, I run the indicator on NQ and EUR/USD. It spits out a directional bias — long or short — and I post it to the channel.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Your trade</h3>
+        <p>You see the bias, take the trade at NY open, hold for 1–2 minutes. That's the entire system. No alerts throughout the day, no complicated setups.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Live proof</h3>
+        <p>I trade it publicly on TikTok (@magsnq) every day. You can watch every entry, every result. No hiding behind backtests.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNAL EXAMPLE -->
+
+<section class="signal-example">
+  <div class="section-label" style="justify-content:center">What you get</div>
+  <h2>One message.<br>Every morning.</h2>
+
+  <div style="border:2px dashed rgba(255,255,255,0.35);padding:52px 40px;margin:32px 0 40px;position:relative;">
+    <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0a0a0a;padding:0 16px;">
+      <span style="font-family:'DM Mono',monospace;font-size:12px;color:#ffffff;letter-spacing:0.25em;text-transform:uppercase;font-weight:500;">⬡ EXAMPLE ⬡</span>
+    </div>
+  <div class="signal-card" style="border:none;margin:0;padding:0;background:transparent;">
+    <div class="signal-time" id="type-time" style="min-height:1.4em"></div>
+    <div class="signal-text" id="type-signal" style="min-height:1.2em;opacity:0;transition:opacity 0.4s"></div>
+    <div class="signal-instrument" id="type-instrument" style="min-height:1.4em;opacity:0;transition:opacity 0.4s"></div>
+  </div>
+  <script>
+    function typeText(el, text, speed, cb) {
+      let i = 0; el.textContent = '';
+      const t = setInterval(() => {
+        el.textContent += text[i++];
+        if (i >= text.length) { clearInterval(t); if (cb) cb(); }
+      }, speed);
+    }
+    function runAnimation() {
+      const time = document.getElementById('type-time');
+      const signal = document.getElementById('type-signal');
+      const instrument = document.getElementById('type-instrument');
+      signal.style.opacity = 0; instrument.style.opacity = 0; time.textContent = '';
+      typeText(time, 'Today · 09:28 NY', 55, () => {
+        setTimeout(() => { signal.style.opacity = 1; signal.textContent = 'LONG'; }, 200);
+        setTimeout(() => { instrument.style.opacity = 1; instrument.textContent = 'NQ Futures · gravity score: bullish'; }, 600);
+      });
+    }
+    window.addEventListener('load', () => { runAnimation(); setInterval(runAnimation, 5000); });
+  </script>
+  </div>
+
+  <p>That's it. No paragraph of analysis. No second-guessing. The indicator has already done the work — you just execute.</p>
+</section>
+
+<!-- PRICING / JOIN -->
+
+<section class="pricing" id="join">
+  <div class="pricing-inner">
+    <div class="section-label">Join</div>
+
+```
+<div class="price-card">
+  <div class="price-amount">$39</div>
+  <div class="price-period">per month · billed monthly</div>
+
+  <ul class="price-features">
+    <li>Daily bias posted before 9:30 NY open</li>
+    <li>NQ Futures + EUR/USD coverage</li>
+    <li>Private Telegram channel</li>
+    <li>Live trade results on TikTok daily</li>
+    <li>Cancel any time, no questions</li>
+  </ul>
+
+  <a href="https://whop.com/gravity-signals" class="btn-primary" style="width:100%;text-align:center;display:block;">Join Gravity →</a>
+
+  <p class="price-note">
+    Payments handled securely via Whop. Access granted to the Telegram channel automatically after payment. 
+    This is a signal service, not financial advice. Past performance does not guarantee future results.
+  </p>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-logo">GRAVITY</div>
+  <div class="footer-links">
+    <a href="https://tiktok.com/@magsnq">TikTok</a>
+    <a href="https://maggieon.medium.com">Medium</a>
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#105;&#64;&#115;&#107;&#121;&#108;&#101;&#115;&#115;&#46;&#118;&#101;&#110;&#116;&#117;&#114;&#101;&#115;">Contact</a>
+  </div>
+  <p class="footer-disclaimer">
+    gravity.forex is a trading signal service for educational and informational purposes only. 
+    Nothing on this site constitutes financial advice. Trading futures and forex involves substantial risk of loss. 
+    Only trade with capital you can afford to lose. Past performance does not indicate future results.
